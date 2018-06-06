@@ -1,0 +1,39 @@
+{
+  "name": "ui-router",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "router",
+    "web",
+    "pam"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -e js,ejs index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "Maxime Allanic",
+    "email": "maxime@allanic.me",
+    "url": "http://allanic.me/"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.18",
+    "angular": "^1.7.0",
+    "angular1-ui-bootstrap4": "^2.4.22",
+    "bootstrap": "^4.1.1",
+    "express": "^4.16.3",
+    "expressjs": "^1.0.1",
+    "glob": "^7.1.2",
+    "jquery": "^3.3.1",
+    "lodash": "^4.17.10",
+    "lodash-keyarrange": "^1.1.0",
+    "mkdirp": "^0.5.1",
+    "q": "^1.5.1",
+    "winston": "^3.0.0-rc6"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.5"
+  }
+}
