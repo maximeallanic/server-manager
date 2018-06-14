@@ -9,8 +9,8 @@ var Service = require('node-service-linux').Service;
 
 // Create a new service object
 var svc = new Service({
-    name: 'ui-router',
-    description: 'Web Ui Router Server.',
+    name: 'server-manager',
+    description: 'Web Ui Server Manager.',
     script: $path.join(__dirname, 'server.js'),
     user: 'root',
     group: 'root'

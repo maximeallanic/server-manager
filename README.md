@@ -5,15 +5,22 @@
  Created by mallanic <maxime@allanic.me> at 05/06/2018
 -->
 
-# Install (only on Debian base)
-## Install dependency
+# Server Manager
+A web interface to manage server as router, file server, etc...
 
-``` sudo apt i libpam-dev -y```
+## Functionality
+- Create, update, delete Linux User
+- Auth with Linux User
+- View network interfaces
+- Highly pluggable
 
-``` npm install ```
+## Install (Tested only on Debian base)
+### Install dependency
 
-## Run
+``` sudo apt i libpam-dev libpam0g-dev -y```
 
-``` npm start ```
+### Install Ui-router
+
+``` npm install -g https://github.com/maximeallanic/server-manager ```
 
 
