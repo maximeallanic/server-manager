@@ -1,0 +1,35 @@
+<!--
+Copyright 2018 Allanic.me ISC License License
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+Created by mallanic <maxime@allanic.me> at 14/06/2018
+-->
+
+<div class="row">
+    <div class="card"
+         style="width: 21rem"
+         ng-repeat="interface in statusCtrl.interfaces">
+        <div class="card-body">
+            <h5 class="card-title row mb-4">
+                <span ng-bind="interface.name" class="col-6 text-left"></span>
+                <i class="col-6 text-right fa" ng-class="{'fa-sitemap': interface.type === 'Wired'}"></i>
+            </h5>
+            <p class="card-text">
+                <dl class="row">
+                    <dt class="col-sm-5 text-left">Address IP</dt>
+                    <dd class="col-sm-7 text-right" ng-bind="interface.ip_address"></dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-sm-5 text-left">Gateway IP</dt>
+                    <dd class="col-sm-7 text-right"
+                        ng-bind="interface.gateway_ip"></dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-sm-5 text-left">Address MAC</dt>
+                    <dd class="col-sm-7 text-right"
+                        ng-bind="interface.mac_address"></dd>
+                </dl>
+            </p>
+        </div>
+    </div>
+</div>

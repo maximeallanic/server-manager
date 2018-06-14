@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 Your Company ISC License License
+ * Copyright 2018 Allanic ISC License License
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  * Created by mallanic <maxime@allanic.me> at 05/06/2018
@@ -14,23 +14,20 @@ module.exports = (app) => {
         format: $winston.format.json(),
         transports: [
             new $winston.transports.File({
-                filename: 'error.log',
+                filename: '/var/log/ui-router/error.log',
                 handleExceptions: true,
                 level: 'error'
+            }),
+            new $winston.transports.Console({
+                format: $winston.format.combine(
+                    $winston.format.colorize(),
+                    $winston.format.timestamp(),
+                    $winston.format.align(),
+                    $winston.format.printf(info => `${ info.timestamp }: ${ info.level }: ${ info.message }`)
+                ),
+                handleExceptions: true,
+                level: 'info'
             })
         ]
     });
-
-    if (process.env.NODE_ENV !== 'production') {
-        app.logger.add(new $winston.transports.Console({
-            format: $winston.format.combine(
-                $winston.format.colorize(),
-                $winston.format.timestamp(),
-                $winston.format.align(),
-                $winston.format.printf(info => `${ info.timestamp }: ${ info.level }: ${ info.message.replace(/\n/g, ' ') }`)
-            ),
-            handleExceptions: true,
-            level: 'info'
-        }));
-    }
 };

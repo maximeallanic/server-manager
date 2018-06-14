@@ -1,0 +1,69 @@
+/*
+ * Copyright 2018 Allanic.me ISC License License
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ * Created by mallanic <maxime@allanic.me> at 06/06/2018
+ */
+
+angular.module('router')
+    .config(function ($stateProvider) {
+        $stateProvider.state('login', {
+            url: '/login?redirect',
+            views: {
+                'main': {
+                    templateUrl: '/view/login.html',
+                    controllerAs: 'loginCtrl',
+                    controller: function ($user, $state, $stateParams) {
+                        var loginCtrl = this;
+
+                        if ($user.isLoggedIn())
+                            $state.go('router');
+
+                        loginCtrl.submit = function (username, password) {
+                            return $user.login(username, password).then(function () {
+                                return $state.go($stateParams.redirect || 'router');
+                            });
+                        };
+                    }
+                }
+            }
+        });
+    })
+    .service('$user', function ($api, $localStorage, $state) {
+        var $user = this;
+
+        $user.isLoggedIn = function () {
+            return $localStorage.user;
+        };
+
+        $user.login = function (username, password) {
+            return $api.post('/api/login', {
+                username: username,
+                password: password
+            }).then(function (data) {
+                $localStorage.user = data;
+                $api.setHeader('Authorization', data.token);
+            });
+        };
+
+        $user.logout = function () {
+            $localStorage.user = undefined;
+            $api.setHeader('Authorization', undefined);
+            return $state.go('login');
+        };
+
+        if ($user.isLoggedIn())
+            $api.setHeader('Authorization', $localStorage.user.token);
+
+        return $user;
+    })
+    .run(function ($toolbar, $user, $state, $transitions) {
+        $transitions.onStart({}, function (trans) {
+            if (!$user.isLoggedIn() && trans.$to().name !== 'login') {
+                return trans.router.stateService.target('login', {
+                    redirect: trans.$to().name
+                });
+            }
+        });
+        $toolbar.menu.add('Logout', $user.logout);
+    });

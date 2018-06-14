@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 Your Company ISC License License
+ * Copyright 2018 Allanic ISC License License
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  * Created by mallanic <maxime@allanic.me> at 05/06/2018
@@ -7,30 +7,25 @@
 
 angular.module('router', [
     'ui.bootstrap',
-    'ui.router'
+    'ui.router',
+    'ngStorage',
+    'ngAnimate',
+    'ngMessages',
+    'router.core'
 ])
-    .config(function ($stateProvider) {
+    .config(function ($stateProvider, $locationProvider) {
         $stateProvider.state('router', {
             views: {
                 'main': {
-                    templateUrl: '/layout.html',
+                    templateUrl: '/view/layout.html',
                     controllerAs: 'layoutCtrl',
-                    controller: function () {
+                    controller: function ($toolbar) {
+                        var layoutCtrl = this;
+                        layoutCtrl.toolbar = $toolbar;
                     }
                 }
             }
         });
-        $stateProvider.state('login', {
-            url: '/login',
-            views: {
-                'main': {
-                    templateUrl: '/login.html',
-                    controllerAs: 'loginCtrl',
-                    controller: function () {
-                    }
-                }
-            }
 
-
-        });
+        $locationProvider.html5Mode(true);
     });

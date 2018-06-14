@@ -1,0 +1,72 @@
+/*
+ * Copyright 2018 Allanic.me ISC License License
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ * Created by mallanic <maxime@allanic.me> at 14/06/2018
+ */
+
+@import 'compass';
+
+/*
+ * Sidebar
+ */
+.sidebar {
+    @include transition(max-width 0.3s ease-in-out !important);
+    max-width: 0;
+    width: 200px;
+    padding: 0;
+    overflow-x: hidden;
+    z-index: 1020;
+
+    &.collapsing:not(.show) {
+        max-width: 0;
+        height: 100%;
+    }
+
+    &.show {
+        max-width: 100vw;
+    }
+
+    @media (max-width: 768px) {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    @media (min-width: 768px) {
+        max-width: 90vw;
+        display: block !important;
+    }
+
+    > .navbar-brand {
+        height: 48px;
+        width: calc(100%);
+        padding: 0 20px;
+        line-height: 48px;
+
+        > * {
+            vertical-align: middle;
+        }
+
+        > img {
+            height: 30px;
+            @include filter(brightness(0) contrast(3) invert(1));
+        }
+    }
+
+    > .nav {
+        width: 200px;
+
+        > .nav-item {
+            > .nav-link {
+                transition: all 0.3s;
+                border-radius: 0;
+                &:hover {
+                    background-color: rgba(0, 0, 0, 0.2);
+                    color: white;
+                }
+            }
+        }
+    }
+}

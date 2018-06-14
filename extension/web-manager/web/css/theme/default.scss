@@ -1,0 +1,51 @@
+$theme-colors: (
+  "primary": #EC5F5B,
+  "secondary": #3A0F40,
+  "danger": #ff4136
+);
+
+@import "bootstrap";
+@import "compass";
+
+.navbar {
+    height: 48px;
+}
+
+.btn {
+    &:focus, &:active {
+        box-shadow: none !important;
+        outline: 0;
+    }
+}
+
+form,
+ng-form {
+    [type="submit"] {
+        > .loader {
+            @include animation(rotating 2s linear infinite);
+            @include transition(max-width 0.3s ease-in-out, opacity 0.3s ease-in-out);
+            overflow: hidden;
+            max-width: 0;
+            opacity: 0;
+        }
+    }
+
+    &.ng-form-pending {
+        [type="submit"] {
+            > .loader {
+                max-width: 100px;
+                opacity: 1;
+
+            }
+        }
+    }
+}
+
+@include keyframes(rotating) {
+    from {
+        @include transform(rotate(0deg));
+    }
+    to {
+        @include transform(rotate(360deg));
+    }
+}

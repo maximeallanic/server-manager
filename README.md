@@ -8,8 +8,10 @@
 # Install (only on Debian base)
 ## Install dependency
 
-``` sudo apt i libpam-dev```
+``` sudo apt i libpam-dev -y```
+
 ``` npm install ```
+
 ## Run
 
 ``` npm start ```

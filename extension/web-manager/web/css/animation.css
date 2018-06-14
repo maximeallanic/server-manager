@@ -1,0 +1,30 @@
+/*
+ * Copyright 2018 Allanic.me ISC License License
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ * Created by mallanic <maxime@allanic.me> at 13/06/2018
+ */
+
+.animate-fade.ng-enter {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    transition: 0.2s ease-in-out opacity;
+    opacity:0;
+}
+
+/* The finishing CSS styles for the enter animation */
+.animate-fade.ng-enter.ng-enter-active {
+    opacity:1;
+}
+
+.animate-fade.ng-leave {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    transition:0.2s linear all;
+    opacity:1;
+}
+.animate-fade.ng-leave.ng-leave-active {
+    opacity:0;
+}
+
+

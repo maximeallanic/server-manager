@@ -1,0 +1,65 @@
+<!--
+Copyright 2018 Allanic ISC License License
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+Created by mallanic <maxime@allanic.me> at 05/06/2018
+-->
+
+<div class="d-flex flex-row">
+    <nav class="bg-dark sidebar shadow" id="navbar">
+        <a class="navbar-brand shadow text-light" href="/">
+            <img src="/asset/logo.svg"/>
+            <span ng-bind="layoutCtrl.toolbar.name"></span>
+        </a>
+        <ul class="nav nav-pills flex-column mt-3">
+            <% _.forEach(_.orderBy(controllers, 'weight'), function (controller) { %>
+            <li class="nav-item">
+                <a class="nav-link text-light" ui-sref="router.<%= controller.path %>" ui-sref-active="active">
+                    <%= controller.title %>
+                </a>
+            </li>
+            <% }); %>
+        </ul>
+    </nav>
+
+
+    <div class="d-flex flex-column flex-fill">
+        <nav class="navbar navbar-expand navbar-light bg-primary shadow justify-content-between">
+            <div>
+                <button class="btn btn-sm d-md-none"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
+
+            <div>
+                <div class="navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item dropdown">
+                            <button class="btn btn-sm"
+                                    id="navbarDropdown"
+                                    type="button"
+                                    role="button"
+                                    data-toggle="dropdown"
+                                    aria-haspopup="true"
+                                    aria-expanded="false">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right shadow fade" aria-labelledby="navbarDropdown">
+                                <button class="dropdown-item btn" ng-repeat="menu in layoutCtrl.toolbar.menu.get()" ng-click="menu.onClick()" ng-bind="menu.title"></button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div role="main" class="flex-fill">
+            <div class="container-fluid col-md-9 ml-sm-auto col-lg-10 px-4 animate-fade" ui-view>
+
+            </div>
+        </div>
+    </div>
+</div>

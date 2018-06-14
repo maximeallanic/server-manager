@@ -1,0 +1,13 @@
+<!--
+Copyright 2018 Allanic.me ISC License License
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+Created by mallanic <maxime@allanic.me> at 13/06/2018
+-->
+
+<div ng-repeat="(key, parameter) in parameterCtrl.parameters">
+    <div class="form-group">
+        <label for="exampleInputPassword1" ng-bind="parameter.description"></label>
+        <input type="text" class="form-control" ng-model="parameter.value" ng-change="parameterCtrl.update(key, parameter.value)">
+    </div>
+</div>
