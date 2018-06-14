@@ -27,7 +27,7 @@ sudo apt install libpam-dev libpam0g-dev nodejs -y
 ### Install Ui-router
 
 ```
-sudo npm install -g https://github.com/maximeallanic/server-manager
+sudo npm install -g @mallanic/server-manager
 ```
 
 
