@@ -1,7 +1,7 @@
 {
-  "name": "ui-router",
-  "version": "1.0.0",
-  "description": "",
+  "name": "server-manager",
+  "version": "0.0.1",
+  "description": "A web interface to manage server as router, file server, etc...",
   "keywords": [
     "router",
     "web",
@@ -22,7 +22,7 @@
     "email": "maxime@allanic.me",
     "url": "http://allanic.me/"
   },
-  "license": "ISC",
+  "license": "GPL",
   "dependencies": {
     "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
     "@uirouter/angularjs": "^1.0.18",
