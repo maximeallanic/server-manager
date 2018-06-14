@@ -1,4 +1,0 @@
-cmd_Release/obj.target/authenticate_pam/authenticate_pam.o := c++ '-DNODE_GYP_MODULE_NAME=authenticate_pam' '-D_DARWIN_USE_64_BIT_INODE=1' '-D_LARGEFILE_SOURCE' '-D_FILE_OFFSET_BITS=64' '-DBUILDING_NODE_EXTENSION' -I/Users/mallanic/.node-gyp/10.2.1/include/node -I/Users/mallanic/.node-gyp/10.2.1/src -I/Users/mallanic/.node-gyp/10.2.1/deps/uv/include -I/Users/mallanic/.node-gyp/10.2.1/deps/v8/include  -Os -gdwarf-2 -mmacosx-version-min=10.7 -arch x86_64 -Wall -Wendif-labels -W -Wno-unused-parameter -std=gnu++1y -stdlib=libc++ -fno-rtti -fno-exceptions -fno-threadsafe-statics -fno-strict-aliasing -MMD -MF ./Release/.deps/Release/obj.target/authenticate_pam/authenticate_pam.o.d.raw   -c -o Release/obj.target/authenticate_pam/authenticate_pam.o ../authenticate_pam.cc
-Release/obj.target/authenticate_pam/authenticate_pam.o: \
-  ../authenticate_pam.cc
-../authenticate_pam.cc:

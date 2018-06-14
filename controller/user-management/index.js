@@ -5,7 +5,7 @@
  * Created by mallanic <maxime@allanic.me> at 05/06/2018
  */
 
-const $userPam = require('../../external-module/user-pam-manager');
+const $userPam = require('user-pam-manager');
 const $form = require('express-form');
 
 module.exports.title = "User Management";

@@ -9,18 +9,25 @@
 A web interface to manage server as router, file server, etc...
 
 ## Functionality
-- Create, update, delete Linux User
-- Auth with Linux User
+- Create, update, delete Linux user
+- Auth with Linux user with JWT token
 - View network interfaces
 - Highly pluggable
 
 ## Install (Tested only on Debian base)
 ### Install dependency
 
-``` sudo apt i libpam-dev libpam0g-dev -y```
+```
+sudo apt-get update
+sudo apt install curl -y
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+sudo apt install libpam-dev libpam0g-dev nodejs -y
+```
 
 ### Install Ui-router
 
-``` npm install -g https://github.com/maximeallanic/server-manager ```
+```
+sudo npm install -g https://github.com/maximeallanic/server-manager
+```
 
 
