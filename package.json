@@ -52,6 +52,7 @@
     "node-linux": "^0.1.11",
     "npm": "^6.1.0",
     "q": "^1.5.1",
+    "user-pam-manager": "git+https://github.com/maximeallanic/user-pam-manager.git",
     "winston": "^3.0.0-rc6"
   },
   "devDependencies": {
